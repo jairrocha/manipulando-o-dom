@@ -1,0 +1,1 @@
+Utilizar a extenção 'live server' para subir o servidor (clicar no botão go live)
