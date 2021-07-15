@@ -1,5 +1,6 @@
 
-const criarTarefa = (event) => {
+(() => {const criarTarefa = (event) => {
+
     event.preventDefault()
 
     const lista = document.querySelector('[data-list]')
@@ -11,6 +12,7 @@ const criarTarefa = (event) => {
     const conteudo = `<p class="content">${valor}</p>`
     tarefa.innerHTML = conteudo
     tarefa.appendChild(BotaoConclui())
+    tarefa.appendChild(BotaoDeleta())
     lista.appendChild(tarefa)
     input.value = ""
 }
@@ -41,3 +43,26 @@ const concluirTarefa = (evento) =>{
     tarefaCompleta.classList.toggle('done') /*toggle aplica e retira (true/false) o estilo, basta clicar mais de uma vez*/
 
 }
+
+const BotaoDeleta = () =>{
+
+    const botaoDeleta = document.createElement('button')
+    botaoDeleta.innerText = 'Deletar'
+    botaoDeleta.classList.add('check-button')
+    botaoDeleta.addEventListener('click', deletarTarefa)
+
+    return botaoDeleta
+
+}
+
+
+const deletarTarefa = (envento) =>{
+
+    const botaoDeleta = envento.target
+    const tarefaCompleta = botaoDeleta.parentElement
+
+    tarefaCompleta.remove() /*Remove o objeto*/
+    
+}
+
+})()
